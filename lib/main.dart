@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:trade/screens/home.dart';
+import 'package:trade/screens/login_screen.dart';
+import 'package:trade/utils/color.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,11 +12,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'Trade',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: myPrimaryColor,
       ),
-      home: const HomeScreen(),
+      home: const LoginScreen(),
     );
   }
 }
