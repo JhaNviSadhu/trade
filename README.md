@@ -1,16 +1,15 @@
 # trade
 
-A new Flutter project.
-
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+## Git Commit Conventions
 
-A few resources to get you started if this is your first Flutter project:
+```dart
+- 🎉 :tada: initial commit 🎉
+- 🚀 :rocket: [Add] when implementing a new feature
+- 🔨 :hammer: [Fix] when fixing a bug or issue
+- 🎨 :art: [Refactor] when refactor/improving code
+- 🚧 :construction: [WIP]
+- 📝 :pencil: [Minor] Some small updates
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.

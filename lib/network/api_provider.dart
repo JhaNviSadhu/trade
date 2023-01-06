@@ -12,8 +12,6 @@ class APIProvider {
   APIProvider() {
     final BaseOptions dioOptions = BaseOptions()..baseUrl = env.baseurl;
     dioOptions.responseType = ResponseType.plain;
-    // dioOptions.connectTimeout = 20000;
-    // dioOptions.receiveTimeout = 20000;
     dioOptions.followRedirects = false;
     dioOptions.headers = <String, dynamic>{
       'vAuthorization': 'Bearer ${Prefs.getString(ktoken)}',

@@ -14,7 +14,7 @@ class TradeController extends GetxController {
 
   getOngoingTradeList() {
     final parameter = {
-      'filters': "ongoing", //[ ongoing,expired ]
+      'filters': "ongoing",
     };
     isLoading.value = true;
     sl
@@ -36,7 +36,7 @@ class TradeController extends GetxController {
 
   getExpiredTradeList() {
     final parameter = {
-      'filters': "expired", //[ ongoing,expired ]
+      'filters': "expired",
     };
     isLoading.value = true;
     sl

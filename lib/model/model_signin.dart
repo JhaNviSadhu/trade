@@ -1,7 +1,3 @@
-// To parse this JSON data, do
-//
-//     final modelSigin = modelSiginFromMap(jsonString);
-
 import 'dart:convert';
 
 ModelSignin modelSiginFromMap(String str) =>
