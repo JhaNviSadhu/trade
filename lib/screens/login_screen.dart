@@ -1,6 +1,11 @@
+import 'dart:io';
 import 'package:fl_country_code_picker/fl_country_code_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:trade/controller/signin_controller.dart';
+import 'package:trade/screens/home/home_screen.dart';
 import 'package:trade/utils/color.dart';
+import 'package:trade/utils/common.dart';
 import 'package:trade/utils/constant.dart';
 import 'package:trade/utils/images.dart';
 import 'package:trade/view/custom_button.dart';
@@ -13,9 +18,46 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  SigninController _signinController = Get.find<SigninController>();
   final countryPicker = const FlCountryCodePicker();
+  final TextEditingController mobileNumberController = TextEditingController();
   CountryCode? contryCode =
       const CountryCode(name: "India", code: "IN", dialCode: "+91");
+
+  @override
+  void initState() {
+    print(Platform.isAndroid);
+    print(Platform.isIOS);
+    super.initState();
+  }
+
+  getValidation() {
+    if (mobileNumberController.text.trim().isEmpty) {
+      showSnackbar(MessageType.warning, "Please enter you mobile number");
+      return false;
+    }
+
+    if (mobileNumberController.text.trim().length < 10) {
+      showSnackbar(MessageType.warning, "Please enter valid mobile number");
+      return false;
+    }
+
+    return true;
+  }
+
+  onSignUpClick() {
+    bool isValid() {
+      var value = getValidation();
+      return value;
+    }
+
+    if (isValid()) {
+      _signinController.login(
+        countryCode: contryCode?.dialCode,
+        mobileNumber: mobileNumberController.text.trim(),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +101,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(30),
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(30),
+                      topRight: Radius.circular(30)),
                 ),
                 child: getLoginView(),
               ),
@@ -88,9 +132,11 @@ class _LoginScreenState extends State<LoginScreen> {
               GestureDetector(
                 onTap: () async {
                   final code = await countryPicker.showPicker(context: context);
-                  if (code != null) print(code);
-                  contryCode = code;
-                  setState(() {});
+                  if (code != null) {
+                    print(code);
+                    contryCode = code;
+                    setState(() {});
+                  }
                 },
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -126,6 +172,7 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(width: 10),
               Expanded(
                 child: TextFormField(
+                  controller: mobileNumberController,
                   maxLength: 10,
                   style: Poppins.kTextStyle16Normal400,
                   keyboardType: TextInputType.number,
@@ -146,47 +193,49 @@ class _LoginScreenState extends State<LoginScreen> {
                   Color.fromRGBO(0, 200, 188, 1),
                   Color.fromRGBO(3, 152, 143, 1)
                 ]),
-            shadowColor: Color.fromRGBO(61, 219, 147, 0.17),
-            onTap: () {},
+            shadowColor: const Color.fromRGBO(61, 219, 147, 0.17),
+            onTap: () {
+              onSignUpClick();
+            },
           ),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
                 width: MediaQuery.of(context).size.width / 3,
-                child: Divider(
+                child: const Divider(
                   thickness: 0.8,
                   color: textSecondarycolor,
                 ),
               ),
-              SizedBox(width: 11),
+              const SizedBox(width: 11),
               Text(
                 "With",
                 style: Poppins.kTextStyle15Normal400,
               ),
-              SizedBox(width: 11),
+              const SizedBox(width: 11),
               SizedBox(
                 width: MediaQuery.of(context).size.width / 3,
-                child: Divider(
+                child: const Divider(
                   thickness: 0.8,
                   color: textSecondarycolor,
                 ),
               ),
             ],
           ),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           CustomElevatedButton(
             buttonChild: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Image.asset(Images.ic_google),
-                SizedBox(width: 125),
+                Image.asset(Images.icGoogle),
+                SizedBox(width: MediaQuery.of(context).size.width * 0.25),
                 Text(
                   "Google",
                   style: Poppins.kTextStyle18Normal600,
                 ),
-                Spacer(),
+                const Spacer(),
               ],
             ),
             gradiant: const LinearGradient(
@@ -196,8 +245,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   redcolor,
                   redcolor,
                 ]),
-            shadowColor: Color.fromRGBO(246, 63, 46, 0.3),
-            onTap: () {},
+            shadowColor: const Color.fromRGBO(246, 63, 46, 0.3),
+            onTap: () {
+              showSnackbar(MessageType.warning, "module under devlopment");
+            },
           ),
         ],
       ),
