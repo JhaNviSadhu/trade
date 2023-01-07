@@ -57,7 +57,7 @@ class _TradeViewState extends State<TradeView> {
             child: Row(
               children: [
                 SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.6,
+                  width: MediaQuery.of(context).size.width * 0.58,
                   child: Text(
                     "${trade?.stock}",
                     style: Poppins.kTextStyle15Normal600,
