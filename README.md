@@ -1,6 +1,8 @@
 # trade
 
-## Getting Started
+## Network connectivity
+
+![Simulator Screen Shot - iPhone 14 Pro Max - 2023-01-07 at 20 53 25](https://user-images.githubusercontent.com/63531297/211159472-e213c9c9-0e8b-4448-baf0-29f44438251e.png)
 
 ## Login Screen 
 
@@ -8,15 +10,15 @@
 
 ## Home Screen
 
-![Simulator Screen Shot - iPhone 14 Pro Max - 2023-01-06 at 23 33 50](https://user-images.githubusercontent.com/63531297/211073497-26953121-4393-4f4c-bccf-fc68a36a3214.png)
 ![Simulator Screen Shot - iPhone 14 Pro Max - 2023-01-06 at 23 33 41](https://user-images.githubusercontent.com/63531297/211073504-3c9adcea-bb11-4d5e-8a84-efde026f20ea.png)
+
+![Simulator Screen Shot - iPhone 14 Pro Max - 2023-01-06 at 23 33 50](https://user-images.githubusercontent.com/63531297/211073497-26953121-4393-4f4c-bccf-fc68a36a3214.png)
+
 
 ## Demo Video
 
 
 https://user-images.githubusercontent.com/63531297/211074067-0f54446c-8e35-4527-80ff-557c7310e536.mp4
-
-
 
 
 ## Git Commit Conventions
